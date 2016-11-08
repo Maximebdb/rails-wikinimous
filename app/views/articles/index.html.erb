@@ -1,0 +1,17 @@
+<div class="card">
+  <div class='titre'>
+    <h1>Articles#index</h1>
+  </div>
+</div>
+
+<% @articles.each_with_index do |article, index| %>
+<div class="card">
+  <div class='article'>
+      <p><%= index + 1 %> - <%= article.title %> <%= link_to 'show', "/articles/#{article.id}" %> <%= link_to 'edit', edit_article_path(article) %> <%= link_to "delete", article_path(article),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %></p>
+  </div>
+</div>
+<% end %>
+
+<%= link_to "add a new article", "/articles/new" %>

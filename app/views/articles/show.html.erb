@@ -1,0 +1,19 @@
+<div class="card">
+  <div class='titre'>
+    <h1>Articles#show</h1>
+  </div>
+</div>
+
+<div class="card">
+  <div class='article'>
+      <h2><%= @article.id %> - <%= @article.title %></h2>
+  </div>
+</div>
+
+<div class="card">
+  <div class='article'>
+      <%= Kramdown::Document.new(@article.content).to_html.html_safe %>
+  </div>
+</div>
+
+<%= link_to 'edit this article', edit_article_path(@article) %> || <%= link_to "return to the list", "/articles" %>
